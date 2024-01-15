@@ -15,7 +15,7 @@ chrome_options.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(options=chrome_options)
 
-driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3759787458&distance=100&f_AL=true&f_SB2=42&geoId=102681496&keywords=Application%20Support&location=Glasgow%2C%20Scotland%2C%20United%20Kingdom&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true")
+driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3792867485&f_AL=true&f_SB2=42&geoId=101165590&keywords=Application%20Support&location=United%20Kingdom&origin=JOB_SEARCH_PAGE_LOCATION_AUTOCOMPLETE&refresh=true")
 
 # Click Reject Cookies Button
 time.sleep(2)
@@ -38,20 +38,24 @@ search_password.send_keys(PASSWORD, Keys.ENTER)
 input("Press Enter when you have solved the Captcha")
 
 time.sleep(5)
-easy_apply = driver.find_element(By.LINK_TEXT, value="Easy Apply")
-easy_apply.send_keys(Keys.ENTER)
+easy_apply = driver.find_element(by=By.CSS_SELECTOR, value=".jobs-s-apply button")
+easy_apply.click()
 
 time.sleep(5)
-next_button = driver.find_element(By.LINK_TEXT, value="Next")
-next_button.send_keys(Keys.ENTER)
+next_button = driver.find_element(by=By.CSS_SELECTOR, value=".display-flex button")
+next_button.click()
 
 time.sleep(5)
-next_button.send_keys(Keys.ENTER)
+next_button.click()
 
 time.sleep(5)
-review_button = driver.find_element(By.LINK_TEXT, value="Review")
-review_button.send_keys(Keys.ENTER)
+review_button = driver.find_element(by=By.CSS_SELECTOR, value=".display-flex justify-flex-end ph5 pv4 button")
+review_button.click()
 
 time.sleep(5)
-submit_button = driver.find_element(By.LINK_TEXT, value="Submit application")
-submit_button.send_keys(Keys.ENTER)
+submit_button = driver.find_element(by=By.CSS_SELECTOR, value=".job-details-easy-apply-footer__section checkbox")
+submit_button.click()
+
+time.sleep(5)
+submit_button = driver.find_element(by=By.CSS_SELECTOR, value=".display-flex justify-flex-end ph5 pv4 button")
+submit_button.click()
