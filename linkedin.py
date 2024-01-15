@@ -2,6 +2,7 @@ import os
 import time
 
 from selenium import webdriver
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
 EMAIL = os.getenv("EMAIL")
@@ -31,3 +32,22 @@ driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3799401623&f_AL=t
 time.sleep(2)
 reject_button = driver.find_element(by=By.CSS_SELECTOR, value='button[action-type="DENY"]')
 reject_button.click()
+
+# Click Sign in Button
+time.sleep(2)
+sign_in_button = driver.find_element(by=By.LINK_TEXT, value="Sign in")
+sign_in_button.click()
+
+# Sign in
+time.sleep(5)
+search_email = driver.find_element(By.NAME, value="session_key")
+search_password = driver.find_element(By.NAME, value="session_password")
+search_email.send_keys(EMAIL)
+search_password.send_keys(PASSWORD, Keys.ENTER)
+
+# CAPTCHA - Solve Puzzle Manually
+input("Press Enter when you have solved the Captcha")
+
+# Get Listings
+time.sleep(5)
+all_listings = driver.find_elements(by=By.CSS_SELECTOR, value=".job-card-container--clickable")
