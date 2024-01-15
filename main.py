@@ -38,7 +38,8 @@ search_password.send_keys(PASSWORD, Keys.ENTER)
 input("Press Enter when you have solved the Captcha")
 
 time.sleep(5)
-easy_apply = driver.find_element(by=By.CSS_SELECTOR, value=".jobs-s-apply button")
+easy_apply = driver.find_elements(by=By.CSS_SELECTOR, value=".jobs-s-apply jobs-s-apply--fadein inline-flex mr2 button")
+print(easy_apply)
 easy_apply.click()
 
 time.sleep(5)
