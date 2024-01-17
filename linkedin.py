@@ -27,7 +27,7 @@ chrome_options.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(options=chrome_options)
 
-driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3792867485&f_AL=true&f_SB2=42&geoId=101165590&keywords=Application%20Support&location=United%20Kingdom&origin=JOB_SEARCH_PAGE_LOCATION_AUTOCOMPLETE&refresh=true")
+driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3795384026&distance=50&f_AL=true&f_TPR=r2592000&geoId=102681496&location=Glasgow%2C%20Scotland%2C%20United%20Kingdom&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true&sortBy=R")
 
 # Click Reject Cookies Button
 time.sleep(2)
@@ -51,7 +51,7 @@ input("Press Enter when you have solved the Captcha")
 
 # Get Listings
 time.sleep(5)
-all_listings = driver.find_elements(by=By.CSS_SELECTOR, value=".job-card-container--clickable")
+all_listings = driver.find_elements(by=By.CSS_SELECTOR, value=".scaffold-layout__list")
 print(all_listings)
 
 # Apply for Jobs
