@@ -57,7 +57,6 @@ print(all_listings)
 # Apply for Jobs
 for listing in all_listings:
     print("Opening Listing")
-    print(listing)
     listing.click()
     time.sleep(2)
     try:
