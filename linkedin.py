@@ -27,7 +27,7 @@ chrome_options.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(options=chrome_options)
 
-driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3804084116&distance=50&f_AL=true&f_TPR=r2592000&f_WT=3%2C2&geoId=102681496&keywords=application%20support&location=Glasgow%2C%20Scotland%2C%20United%20Kingdom&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true&sortBy=R")
+driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3791953240&f_AL=true&f_TPR=r2592000&f_WT=3%2C2&geoId=101165590&keywords=application%20support&location=United%20Kingdom&origin=JOB_SEARCH_PAGE_LOCATION_AUTOCOMPLETE&refresh=true&sortBy=R")
 
 # Click Reject Cookies Button
 time.sleep(2)
@@ -66,20 +66,25 @@ for listing in all_listings:
 
         # Insert Phone Number
         # Find an <input> element where the id contains phoneNumber
-        time.sleep(5)
-        phone = driver.find_element(by=By.CSS_SELECTOR, value="input[type=text]")
+        time.sleep(3)
+        # phone = driver.find_element(by=By.CSS_SELECTOR, value="input[type=text]")
+        phone = driver.find_element(by=By.ID, value="single-line-text-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-3799104966-108701171-phoneNumber-nationalNumber")
+        print(phone.text)
         if phone.text == "":
             phone.send_keys(PHONE)
 
         # Click Next Button
+        time.sleep(3)
         apply_button1 = driver.find_element(by=By.CSS_SELECTOR, value=".artdeco-button")
         apply_button1.click()
 
         # Click Next Button
+        time.sleep(3)
         next_button = driver.find_element(by=By.LINK_TEXT, value="Next")
         next_button.click()
 
         # Click Review Button
+        time.sleep(3)
         review_button = driver.find_element(by=By.LINK_TEXT, value="Review")
         review_button.click()
 
